@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h1>Welcome to WeVote</h1>
+
+  {% if voted %}
+    <div class="alert alert-info">
+      You have already completed voting in this browser session.
+    </div>
+    <a class="btn btn-primary" href="{{ url_for('results') }}">View Results</a>
+  {% else %}
+    <form method="post" action="{{ url_for('start') }}">
+      <button class="btn btn-success">Start Voting</button>
+    </form>
+    <a class="btn btn-outline-secondary mt-2" href="{{ url_for('results') }}">See Current Results</a>
+    <hr>
+    <p class="text-muted small">This demo prevents double-voting only in the browser session.</p>
+  {% endif %}
+{% endblock %}
