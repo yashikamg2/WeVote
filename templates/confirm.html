@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h2>Confirm your selection</h2>
+  <p>Category: <strong>{{ category['name'] }}</strong></p>
+  <p>You selected: <strong>{{ nominee['name'] }}</strong></p>
+
+  <form method="post" class="d-inline">
+    <button name="action" value="confirm" class="btn btn-success">Confirm</button>
+  </form>
+  <form method="post" class="d-inline" action="{{ url_for('confirm', index=index) }}">
+    <input type="hidden" name="action" value="change" />
+    <button name="action" value="change" class="btn btn-secondary">Change selection</button>
+  </form>
+{% endblock %}
