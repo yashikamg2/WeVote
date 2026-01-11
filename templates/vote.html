@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h2>Category: {{ category['name'] }}</h2>
+  <p>Category {{ index + 1 }} of {{ total }}</p>
+
+  <form method="post">
+    <div class="list-group mb-3">
+      {% for nom in nominees %}
+        <label class="list-group-item">
+          <input type="radio" name="nominee" value="{{ nom['id'] }}" class="form-check-input me-2" />
+          {{ nom['name'] }}
+        </label>
+      {% endfor %}
+    </div>
+    <button class="btn btn-primary">Continue to confirmation</button>
+  </form>
+
+  <a class="btn btn-link mt-3" href="{{ url_for('index') }}">Cancel</a>
+{% endblock %}
