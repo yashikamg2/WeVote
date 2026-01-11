@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h1>Results</h1>
+
+  {% for cat in data %}
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">{{ cat.category }} <small class="text-muted">({{ cat.total }} votes)</small></h5>
+        {% for n in cat.nominees %}
+          <div class="d-flex justify-content-between">
+            <div>{{ n.name }}</div>
+            <div>{{ n.votes }} ({{ n.pct }}%)</div>
+          </div>
+          <div class="progress mb-2" style="height: 1.1rem">
+            <div class="progress-bar" role="progressbar" style="width: {{ n.pct }}%;" aria-valuenow="{{ n.pct }}" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+
+  <a class="btn btn-outline-secondary" href="{{ url_for('index') }}">Back</a>
+{% endblock %}
