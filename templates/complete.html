@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h1>Voting complete</h1>
+  {% if picks %}
+    <p class="mb-2">You selected:</p>
+    <ul class="list-group mb-3">
+      {% for p in picks %}
+        <li class="list-group-item"><strong>{{ p.category }}</strong>: {{ p.nominee }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No selections recorded in session.</p>
+  {% endif %}
+  <a class="btn btn-primary" href="{{ url_for('results') }}">View results</a>
+  <a class="btn btn-outline-secondary" href="{{ url_for('index') }}">Back to home</a>
+{% endblock %}
