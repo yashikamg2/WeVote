@@ -67,10 +67,7 @@ def seed_sample_ballot():
         db.commit()
 
 
-@app.before_first_request
-def startup():
-    init_db()
-    seed_sample_ballot()
+def startup(): init_db() seed_sample_ballot()
 
 
 def get_categories():
