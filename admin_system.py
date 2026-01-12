@@ -72,7 +72,7 @@ class AdminVotingSystem:
                              padx=25, pady=20, relief=tk.GROOVE, bd=2)
         frame.pack(fill=tk.X, pady=(0, 15))
         
-        # Entry row
+       
         entry_frame = tk.Frame(frame, bg="white")
         entry_frame.pack(fill=tk.X, pady=(0, 15))
         
@@ -83,11 +83,10 @@ class AdminVotingSystem:
         self.candidate_entry.pack(side=tk.LEFT, padx=(0, 10))
         self.candidate_entry.bind('<Return>', lambda e: self.add_candidate())
         
-        tk.Button(entry_frame, text="➕ Add", command=self.add_candidate,
+        tk.Button(entry_frame, text="➕Add", command=self.add_candidate,
                  bg="#27ae60", fg="white", font=("Arial", 10, "bold"), 
                  padx=20, pady=6, cursor="hand2").pack(side=tk.LEFT)
         
-        # Candidates list
         list_frame = tk.Frame(frame, bg="white")
         list_frame.pack(fill=tk.BOTH, expand=True)
         
@@ -105,7 +104,7 @@ class AdminVotingSystem:
         self.candidates_listbox.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         scrollbar.config(command=self.candidates_listbox.yview)
         
-        # Buttons row
+        
         btn_frame = tk.Frame(frame, bg="white")
         btn_frame.pack(fill=tk.X, pady=(10, 0))
         
@@ -117,7 +116,7 @@ class AdminVotingSystem:
                  bg="#95a5a6", fg="white", font=("Arial", 9, "bold"), 
                  padx=15, pady=5, cursor="hand2").pack(side=tk.LEFT)
     
-    def build_election_control_section(self):
+  def build_election_control_section(self):
         """Build election control section"""
         frame = tk.LabelFrame(self.main_frame, text="⚙️ Election Control", 
                              font=("Arial", 13, "bold"), bg="white", 
